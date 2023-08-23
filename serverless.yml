@@ -1,0 +1,14 @@
+service: aws-api-products
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x # Make sure to use a valid runtime version
+
+functions:
+  getAllProducts:
+    handler: getAllProducts.handler
+    events:
+      - httpApi:
+          path: /products # Use a descriptive path
+          method: get
